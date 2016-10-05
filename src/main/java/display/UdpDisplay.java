@@ -1,24 +1,24 @@
 package display;
 
 import product.Price;
-import printer.PrinterClient;
+import printer.PrinterDriver;
 
 public class UdpDisplay implements Display
 {
-  private PrinterClient printerClient;
+  private PrinterDriver printerDriver;
 
-  public UdpDisplay(PrinterClient printerClient)
+  public UdpDisplay(PrinterDriver printerDriver)
   {
-    this.printerClient = printerClient;
+    this.printerDriver = printerDriver;
   }
 
   @Override public void productNotFound()
   {
-    printerClient.print("Product not found");
+    printerDriver.print("Product not found");
   }
 
   @Override public void productFound(Price price)
   {
-    printerClient.print(price.getPrice());
+    printerDriver.print(price.getPrice());
   }
 }

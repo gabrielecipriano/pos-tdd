@@ -3,12 +3,12 @@ package printer;
 import java.io.IOException;
 import java.net.*;
 
-public class UdpPrinterClient implements PrinterClient
+public class UdpPrinterDriver implements PrinterDriver
 {
   private InetAddress serverIp;
   private int port;
 
-  public UdpPrinterClient(int port, InetAddress serverIp)
+  public UdpPrinterDriver(int port, InetAddress serverIp)
   {
     this.port = port;
     this.serverIp = serverIp;

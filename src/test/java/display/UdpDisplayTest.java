@@ -5,7 +5,7 @@ import org.jmock.auto.Mock;
 import org.jmock.integration.junit4.JUnitRuleMockery;
 import org.junit.*;
 import product.Price;
-import printer.PrinterClient;
+import printer.PrinterDriver;
 
 public class UdpDisplayTest
 {
@@ -13,13 +13,13 @@ public class UdpDisplayTest
   public JUnitRuleMockery context = new JUnitRuleMockery();
 
   @Mock
-  private PrinterClient printerClient;
+  private PrinterDriver printerDriver;
   private UdpDisplay udpDisplay;
 
   @Before
   public void setUp() throws Exception
   {
-    udpDisplay = new UdpDisplay(printerClient);
+    udpDisplay = new UdpDisplay(printerDriver);
   }
 
   @Test
@@ -27,7 +27,7 @@ public class UdpDisplayTest
   {
     context.checking(new Expectations()
     {{
-      oneOf(printerClient).print("EUR 18.50");
+      oneOf(printerDriver).print("EUR 18.50");
     }});
 
     udpDisplay.productFound(new Price("EUR 18.50"));
@@ -38,7 +38,7 @@ public class UdpDisplayTest
   {
     context.checking(new Expectations()
     {{
-      oneOf(printerClient).print("Product not found");
+      oneOf(printerDriver).print("Product not found");
     }});
 
     udpDisplay.productNotFound();

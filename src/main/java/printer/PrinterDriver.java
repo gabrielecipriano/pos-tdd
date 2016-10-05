@@ -1,6 +1,6 @@
 package printer;
 
-public interface PrinterClient
+public interface PrinterDriver
 {
   void print(String text);
 }

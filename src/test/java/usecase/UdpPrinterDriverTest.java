@@ -1,7 +1,7 @@
 package usecase;
 
 import org.junit.Test;
-import printer.UdpPrinterClient;
+import printer.UdpPrinterDriver;
 
 import java.io.IOException;
 import java.net.*;
@@ -9,14 +9,14 @@ import java.net.*;
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.*;
 
-public class UdpPrinterClientTest
+public class UdpPrinterDriverTest
 {
   @Test
   public void clientTalksToServer() throws Exception
   {
     DatagramSocket serverSocket = new DatagramSocket(9876);
 
-    UdpPrinterClient udpPrinterClient = new UdpPrinterClient(9876, ipFor("localhost"));
+    UdpPrinterDriver udpPrinterClient = new UdpPrinterDriver(9876, ipFor("localhost"));
 
     udpPrinterClient.print("IRRELEVANT_TEXT");
 
