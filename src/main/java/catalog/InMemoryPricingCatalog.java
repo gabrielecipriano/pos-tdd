@@ -6,9 +6,9 @@ import java.util.*;
 
 public class InMemoryPricingCatalog implements PricingCatalog
 {
-  private Map<String, String> priceBarcodeAssociation;
+  private Map<String, Price> priceBarcodeAssociation;
 
-  public InMemoryPricingCatalog(Map<String, String> priceBarcodeAssociation)
+  public InMemoryPricingCatalog(Map<String, Price> priceBarcodeAssociation)
   {
     this.priceBarcodeAssociation = priceBarcodeAssociation;
   }
@@ -17,7 +17,7 @@ public class InMemoryPricingCatalog implements PricingCatalog
   {
     if (priceBarcodeAssociation.containsKey(barcode))
     {
-      return Optional.of(new Price(priceBarcodeAssociation.get(barcode)));
+      return Optional.of(priceBarcodeAssociation.get(barcode));
     }
 
     return Optional.empty();

@@ -3,11 +3,11 @@ package display;
 import product.Price;
 import printer.PrinterDriver;
 
-public class UdpDisplay implements Display
+public class DriverPoweredDisplay implements Display
 {
   private PrinterDriver printerDriver;
 
-  public UdpDisplay(PrinterDriver printerDriver)
+  public DriverPoweredDisplay(PrinterDriver printerDriver)
   {
     this.printerDriver = printerDriver;
   }

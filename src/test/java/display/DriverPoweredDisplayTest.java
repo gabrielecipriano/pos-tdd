@@ -7,19 +7,19 @@ import org.junit.*;
 import product.Price;
 import printer.PrinterDriver;
 
-public class UdpDisplayTest
+public class DriverPoweredDisplayTest
 {
   @Rule
   public JUnitRuleMockery context = new JUnitRuleMockery();
 
   @Mock
   private PrinterDriver printerDriver;
-  private UdpDisplay udpDisplay;
+  private DriverPoweredDisplay driverPoweredDisplay;
 
   @Before
   public void setUp() throws Exception
   {
-    udpDisplay = new UdpDisplay(printerDriver);
+    driverPoweredDisplay = new DriverPoweredDisplay(printerDriver);
   }
 
   @Test
@@ -30,7 +30,7 @@ public class UdpDisplayTest
       oneOf(printerDriver).print("EUR 18.50");
     }});
 
-    udpDisplay.productFound(new Price("EUR 18.50"));
+    driverPoweredDisplay.productFound(new Price("EUR 18.50"));
   }
 
   @Test
@@ -41,6 +41,6 @@ public class UdpDisplayTest
       oneOf(printerDriver).print("Product not found");
     }});
 
-    udpDisplay.productNotFound();
+    driverPoweredDisplay.productNotFound();
   }
 }

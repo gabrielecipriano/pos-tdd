@@ -6,7 +6,7 @@ import product.Price;
 
 import java.util.Optional;
 
-public class SellOneItem
+public class SellOneItem implements BarcodeController
 {
   private Display textDisplay;
   private PricingCatalog pricingCatalog;
@@ -17,7 +17,7 @@ public class SellOneItem
     this.pricingCatalog = pricingCatalog;
   }
 
-  public void onBarcode(String barcode)
+  @Override public void onBarcode(String barcode)
   {
     Optional<Price> eventualProduct = pricingCatalog.findPrice(barcode);
 

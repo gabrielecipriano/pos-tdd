@@ -13,14 +13,16 @@ public class InMemoryPricingCatalogTest
   @Test
   public void priceFound() throws Exception
   {
-    Map<String, String> priceBarcodeAssociation = new HashMap<String, String>()
+    Price price = new Price("KNOWN_BARCODE_PRICE");
+
+    Map<String, Price> priceBarcodeAssociation = new HashMap<String, Price>()
     {{
-      put("KNOWN_BARCODE", "KNOWN_BARCODE_PRICE");
+      put("KNOWN_BARCODE", price);
     }};
 
     InMemoryPricingCatalog pricingCatalog = new InMemoryPricingCatalog(priceBarcodeAssociation);
 
-    assertThat(pricingCatalog.findPrice("KNOWN_BARCODE").get(), is(new Price("KNOWN_BARCODE_PRICE")));
+    assertThat(pricingCatalog.findPrice("KNOWN_BARCODE").get(), is(price));
   }
 
   @Test
