@@ -1,20 +1,20 @@
-package usecase;
+package printer;
 
 import java.io.IOException;
 import java.net.*;
 
-public class UdpClient
+public class UdpPrinterClient implements PrinterClient
 {
   private InetAddress serverIp;
   private int port;
 
-  public UdpClient(int port, InetAddress serverIp)
+  public UdpPrinterClient(int port, InetAddress serverIp)
   {
     this.port = port;
     this.serverIp = serverIp;
   }
 
-  public void send(String text)
+  public void print(String text)
   {
     try
     {

@@ -33,4 +33,9 @@ public class Price
         "price='" + price + '\'' +
         '}';
   }
+
+  public String getPrice()
+  {
+    return price;
+  }
 }

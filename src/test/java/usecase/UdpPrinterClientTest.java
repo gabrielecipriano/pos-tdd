@@ -1,6 +1,7 @@
 package usecase;
 
 import org.junit.Test;
+import printer.UdpPrinterClient;
 
 import java.io.IOException;
 import java.net.*;
@@ -8,16 +9,16 @@ import java.net.*;
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.*;
 
-public class UdpClientTest
+public class UdpPrinterClientTest
 {
   @Test
   public void clientTalksToServer() throws Exception
   {
     DatagramSocket serverSocket = new DatagramSocket(9876);
 
-    UdpClient udpClient = new UdpClient(9876, ipFor("localhost"));
+    UdpPrinterClient udpPrinterClient = new UdpPrinterClient(9876, ipFor("localhost"));
 
-    udpClient.send("IRRELEVANT_TEXT");
+    udpPrinterClient.print("IRRELEVANT_TEXT");
 
     assertThat(receivedBy(serverSocket), is("IRRELEVANT_TEXT"));
   }

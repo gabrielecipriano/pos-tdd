@@ -29,7 +29,7 @@ public class SellOneItemTest
   }
 
   @Test
-  public void priceNotFound() throws Exception
+  public void unknowBarcode() throws Exception
   {
     context.checking(new Expectations()
     {{
@@ -43,7 +43,7 @@ public class SellOneItemTest
   }
 
   @Test
-  public void priceFound() throws Exception
+  public void knownBarcode() throws Exception
   {
     context.checking(new Expectations()
     {{
